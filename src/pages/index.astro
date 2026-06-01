@@ -8,23 +8,34 @@ import BaseHead from '../components/BaseHead.astro';
 		<BaseHead title="Offsite Social Co." description="Clock out. Join in." />
 		<style>
 			:root {
-				--bg-color: #0f2e26; /* Deep heritage green matching Gamma */
-				--text-main: #f5e6d3; /* Cream text */
-				--accent: #e08b6c; /* Terracotta */
-				--card-bg: rgba(255,255,255,0.05); 
+				--bg-color: #0d2821; 
+				--text-main: #f5e6d3; 
+				--text-muted: #d9cbb8;
+				--accent: #e08b6c; 
+				--card-bg: rgba(245, 230, 211, 0.04); 
+				
+				/* The Industrial Academic Font Stack */
+				--font-academic: 'Georgia', 'Times New Roman', serif;
+				--font-industrial: 'Courier New', Courier, monospace;
+				--font-ui: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 			}
 			body {
 				background-color: var(--bg-color);
-				color: var(--text-main);
-				font-family: 'Georgia', 'Times New Roman', serif;
-				font-size: 1.15rem; /* Larger base text for readability */
+				color: var(--text-muted);
+				font-family: var(--font-academic);
+				font-size: 1.1rem;
 				margin: 0;
 				padding: 0;
-				line-height: 1.8; /* Extra breathing room between lines */
+				line-height: 1.65;
 				-webkit-font-smoothing: antialiased;
 			}
+			h1, h2, h3, h4 {
+				font-weight: normal;
+				color: var(--text-main);
+				margin-top: 0;
+			}
 			.container {
-				max-width: 1000px; /* Slightly wider to accommodate 3 columns */
+				max-width: 1050px;
 				margin: 0 auto;
 				padding: 4rem 2rem;
 			}
@@ -35,42 +46,62 @@ import BaseHead from '../components/BaseHead.astro';
 				margin-bottom: 6rem;
 			}
 			.hero h1 {
-				font-size: 4rem;
-				letter-spacing: 2px;
+				font-size: clamp(2.5rem, 5vw, 4.5rem);
+				letter-spacing: 1px;
 				margin-bottom: 0.5rem;
-				font-weight: normal;
 			}
 			.hero h3 {
-				font-size: 1.2rem;
-				font-family: sans-serif;
+				font-size: 1rem;
+				font-family: var(--font-industrial);
 				text-transform: uppercase;
-				letter-spacing: 3px;
+				letter-spacing: 4px;
 				margin-bottom: 2rem;
-				color: var(--text-main);
+				color: var(--accent);
 			}
 			.hero p {
-				max-width: 800px;
+				max-width: 750px;
 				margin: 0 auto 1.5rem;
+				font-size: 1.2rem;
+			}
+			
+			/* IMAGE PLACEHOLDERS (The Blueprint Fix) */
+			.img-placeholder {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border: 1px dashed rgba(245, 230, 211, 0.2);
+				color: rgba(245, 230, 211, 0.4);
+				font-family: var(--font-industrial);
+				font-size: 0.85rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				margin: 3rem auto;
 			}
 			.hero-logo {
 				width: 250px;
-				height: auto;
-				margin: 3rem auto;
-				display: block;
+				height: 250px;
+				border-radius: 50%;
+			}
+			.bartaco-logo {
+				width: 100%;
+				max-width: 220px;
+				height: 100px;
+				margin-bottom: 2rem;
 			}
 
 			/* BUTTONS */
 			.button-group {
 				display: flex;
-				gap: 1rem;
+				gap: 1.5rem;
 				justify-content: center;
+				margin-top: 1rem;
 			}
 			.btn {
-				padding: 0.8rem 1.8rem;
+				padding: 0.8rem 2rem;
 				text-decoration: none;
 				border: 1px solid var(--accent);
 				color: var(--text-main);
-				font-family: sans-serif;
+				font-family: var(--font-industrial);
 				text-transform: uppercase;
 				font-size: 0.85rem;
 				letter-spacing: 1px;
@@ -82,50 +113,48 @@ import BaseHead from '../components/BaseHead.astro';
 				font-weight: bold;
 			}
 			.btn:hover {
-				opacity: 0.9;
+				background-color: var(--text-main);
+				color: #111;
+				border-color: var(--text-main);
 			}
 
 			/* TYPOGRAPHY & TAGS */
 			.section-title {
-				font-size: 2.8rem;
-				border-bottom: 1px solid rgba(245, 230, 211, 0.3);
+				font-size: 2.5rem;
+				border-bottom: 1px solid rgba(245, 230, 211, 0.2);
 				padding-bottom: 1rem;
 				margin-bottom: 2.5rem;
-				font-weight: normal;
-				margin-top: 0.5rem;
 			}
 			.tag {
-				background-color: rgba(60, 20, 10, 0.5);
+				background-color: rgba(224, 139, 108, 0.1);
 				color: var(--accent);
-				padding: 0.2rem 0.5rem;
+				padding: 0.3rem 0.6rem;
 				font-size: 0.75rem;
-				font-family: sans-serif;
+				font-family: var(--font-industrial);
 				text-transform: uppercase;
-				letter-spacing: 1.5px;
+				letter-spacing: 2px;
+				border-left: 2px solid var(--accent);
+				margin-bottom: 1rem;
+				display: inline-block;
 			}
 
 			/* GRIDS */
 			.launch-grid {
 				display: grid;
-				grid-template-columns: 1fr 1.2fr 1fr; /* 3 Columns matching Gamma 2 */
+				grid-template-columns: 1fr 1fr 1fr; 
 				gap: 3rem;
-				margin-bottom: 5rem;
+				margin-bottom: 6rem;
+				align-items: start;
 			}
 			.center-col {
 				text-align: center;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				justify-content: center;
-			}
-			.bartaco-logo {
-				width: 100%;
-				max-width: 200px;
-				margin-bottom: 2rem;
 			}
 			.grid-3 {
 				display: grid;
-				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-columns: repeat(3, 1fr);
 				gap: 1.5rem;
 				margin-bottom: 3rem;
 			}
@@ -136,35 +165,56 @@ import BaseHead from '../components/BaseHead.astro';
 				margin-bottom: 5rem;
 			}
 
-			/* CARDS */
+			/* CARDS (Adjusted for perfect fit) */
 			.card {
 				background-color: var(--card-bg);
-				padding: 2rem;
-				border-left: 3px solid var(--accent);
+				padding: 1.8rem;
+				border-left: 2px solid var(--accent);
+				box-sizing: border-box;
 			}
 			.card h4 {
-				font-size: 1.4rem;
-				margin-top: 0;
-				margin-bottom: 1rem;
-				font-weight: normal;
+				font-size: 1.25rem;
+				margin-bottom: 0.8rem;
+				letter-spacing: 0.5px;
+			}
+			.card p {
+				font-family: var(--font-ui); /* Cleaner font inside boxes */
+				font-size: 0.95rem;
+				line-height: 1.5;
+				margin: 0;
+				color: var(--text-muted);
 			}
 			.card-blue {
-				border-left: 3px solid #1e3a8a;
-				background-color: rgba(30, 58, 138, 0.2);
+				border-left: 2px solid #3b82f6;
+			}
+			.card-blue p {
+				font-family: var(--font-academic);
+				font-size: 1.1rem;
+				color: var(--text-main);
 			}
 
 			/* FOOTER */
 			.footer-section {
 				margin-top: 6rem;
-				border-top: 1px solid rgba(245, 230, 211, 0.3);
+				border-top: 1px solid rgba(245, 230, 211, 0.2);
 				padding-top: 4rem;
 				display: grid;
 				grid-template-columns: 2fr 1fr;
 				gap: 4rem;
 			}
-			.legal {
+			.footer-section h4 {
+				font-family: var(--font-industrial);
 				font-size: 0.9rem;
-				opacity: 0.7;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				border-bottom: 1px solid rgba(245,230,211,0.2);
+				padding-bottom: 0.5rem;
+				margin-bottom: 1rem;
+			}
+			.legal {
+				font-family: var(--font-industrial);
+				font-size: 0.8rem;
+				color: rgba(245, 230, 211, 0.4);
 				margin-top: 5rem;
 				border-left: 2px solid var(--accent);
 				padding-left: 1rem;
@@ -172,15 +222,13 @@ import BaseHead from '../components/BaseHead.astro';
 
 			/* MOBILE RESPONSIVE */
 			@media (max-width: 900px) {
-				.launch-grid {
+				.launch-grid, .grid-3, .grid-2, .footer-section {
 					grid-template-columns: 1fr;
+					gap: 2rem;
 				}
 				.center-col {
-					order: -1; /* Puts the logo and button at the top on mobile */
-					margin-bottom: 2rem;
-				}
-				.grid-2, .grid-3, .footer-section {
-					grid-template-columns: 1fr;
+					order: -1; 
+					margin-bottom: 1rem;
 				}
 			}
 		</style>
@@ -188,15 +236,14 @@ import BaseHead from '../components/BaseHead.astro';
 	<body>
 		<main class="container">
 			
-			<!-- HERO SECTION (Matches Gamma 1) -->
 			<section class="hero">
 				<h1>OFFSITE SOCIAL CO.</h1>
 				<h3>Clock Out. Join In.</h3>
 				<p>An independent community initiative bridging the gap between the desk and the block. Built for remote workers who want genuine neighborhood connection. Not another networking event. Not another coupon book.</p>
-				<p><strong>A genuine offline ritual.</strong></p>
+				<p style="color: var(--text-main);"><strong>A genuine offline ritual.</strong></p>
 				
-				<!-- Placeholder for the circular compass logo -->
-				<img src="/compass-logo.png" alt="Offsite Social Co. Compass" class="hero-logo" onerror="this.style.display='none';">
+				<!-- Blueprint outline replaces the invisible gap -->
+				<div class="img-placeholder hero-logo">Compass Logo</div>
 				
 				<div class="button-group">
 					<a href="#join" class="btn btn-primary">Join The Collective</a>
@@ -204,45 +251,40 @@ import BaseHead from '../components/BaseHead.astro';
 				</div>
 			</section>
 
-			<!-- LAUNCH PARTY (Matches Gamma 2) -->
 			<section>
 				<span class="tag">Launch</span>
 				<h2 class="section-title">The LoHi Launch Party</h2>
 				
 				<div class="launch-grid">
-					<!-- Left Column -->
 					<div>
-						<p><strong>Thursday, June 4th</strong></p>
-						<p>4:30 PM – 6:30 PM<br>bartaco LoHi</p>
+						<p style="color: var(--text-main); font-size: 1.15rem; margin-bottom: 0;"><strong>Thursday, June 4th</strong></p>
+						<p style="margin-top: 0.2rem;">4:30 PM – 6:30 PM<br>bartaco LoHi</p>
 						<p>Join us for an evening of genuine connection on the block.</p>
 						<p>Agua frescas, and appetizer trios (chips, salsa & guac) are on the house, along side $8 featured margs all evening long.</p>
-						<div class="card" style="margin-top: 2rem; padding: 1.5rem;">
-							<p style="margin:0; font-size: 0.95rem;">Space for the Launch Party is limited. Secure your spot by June 2.</p>
+						<div class="card" style="margin-top: 2rem;">
+							<p>Space for the Launch Party is limited. Secure your spot by June 2.</p>
 						</div>
 					</div>
 					
-					<!-- Center Column (Logo + Button) -->
 					<div class="center-col">
-						<!-- Placeholder for bartaco logo -->
-						<img src="/bartaco-logo.png" alt="bartaco" class="bartaco-logo" onerror="this.style.display='none';">
+						<!-- Blueprint outline replaces the invisible gap -->
+						<div class="img-placeholder bartaco-logo">Bartaco Logo</div>
 						<a href="https://buttondown.email/offsitesocialco" class="btn btn-primary">Secure Your Spot</a>
 					</div>
 
-					<!-- Right Column -->
 					<div>
 						<p>This is not a networking event. There are no name tags, no elevator pitches, no panels. It is a Thursday afternoon at a good bar with the people who live and work on the same blocks you do.</p>
 						<p>The LoHi Pilot is the first proof of a simple premise: that remote workers in the same neighborhood have more in common than proximity alone, and that a shared table and an unhurried hour is enough to begin building something durable.</p>
-						<p style="border-left: 2px solid var(--accent); padding-left: 1rem; margin-top: 2rem;">Clock out. Join in.</p>
+						<p style="border-left: 2px solid var(--accent); padding-left: 1rem; margin-top: 2rem; color: var(--text-main);">Clock out. Join in.</p>
 					</div>
 				</div>
 			</section>
 
-			<!-- TUESDAY ANCHOR (Matches Gamma 3) -->
 			<section>
 				<span class="tag">The Weekly Routine</span>
 				<h2 class="section-title">The Tuesday Anchor</h2>
-				<p style="margin-bottom: 2rem;">Community is not a one-off meetup. It is a weekly rhythm you can build a workday around.</p>
-				<p style="margin-bottom: 2rem;"><strong>Starting June 9th, every Tuesday from 11:00 AM to 3:00 PM at bartaco LoHi.</strong></p>
+				<p style="color: var(--text-main); font-size: 1.2rem;">Community is not a one-off meetup. It is a weekly rhythm you can build a workday around.</p>
+				<p><strong>Starting June 9th, every Tuesday from 11:00 AM to 3:00 PM at bartaco LoHi.</strong></p>
 				
 				<div class="grid-3">
 					<div class="card">
@@ -252,7 +294,7 @@ import BaseHead from '../components/BaseHead.astro';
 					<div class="card">
 						<h4>Claim Your Tray</h4>
 						<p>A complimentary app trio (chips, salsa, guac) on the house with the purchase of a lunch tray.</p>
-						<p style="color: var(--accent); font-style: italic; margin-top: 1rem;">$13 value</p>
+						<p style="color: var(--accent); font-family: var(--font-industrial); margin-top: 1rem; text-transform: uppercase;">$13 value</p>
 					</div>
 					<div class="card">
 						<h4>Live the Block</h4>
@@ -266,12 +308,11 @@ import BaseHead from '../components/BaseHead.astro';
 						<p>The anchor is always the same day, the same place, the same unhurried window of time. Build your neighborhood routine.</p>
 					</div>
 					<div class="card card-blue">
-						<p style="margin:0; font-size: 1rem;">New venues and local partnerships will be announced as the network expands. Each addition will reflect the neighborhood.</p>
+						<p>New venues and local partnerships will be announced as the network expands. Each addition will reflect the neighborhood.</p>
 					</div>
 				</div>
 			</section>
 
-			<!-- FOOTER / JOIN (Matches Gamma 4) -->
 			<section id="join" class="footer-section">
 				<div>
 					<span class="tag">The Collective</span>
@@ -280,13 +321,13 @@ import BaseHead from '../components/BaseHead.astro';
 					<a href="https://buttondown.email/offsitesocialco" class="btn btn-primary" style="display:inline-block; margin-top:1rem;">Join The Collective</a>
 				</div>
 				<div>
-					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem; margin-bottom: 1rem;">Contact</h4>
+					<h4>Contact</h4>
 					<p style="margin:0;"><a href="mailto:offsitesocialco@gmail.com" style="color: var(--accent); text-decoration:none;">offsitesocialco@gmail.com</a></p>
 					
-					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Instagram</h4>
+					<h4 style="margin-top: 2.5rem;">Instagram</h4>
 					<p style="margin:0;">@offsitesocialco</p>
 					
-					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem; margin-top: 2rem; margin-bottom: 1rem;">Operated By</h4>
+					<h4 style="margin-top: 2.5rem;">Operated By</h4>
 					<p style="margin:0;">Community Craft, Ltd.</p>
 				</div>
 			</section>
