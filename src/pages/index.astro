@@ -1,50 +1,226 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title="Offsite Social Co." description="Clock Out. Join In." />
+		<style>
+			:root {
+				--bg-color: #0f2e26;
+				--text-main: #f5e6d3;
+				--accent: #e08b6c;
+				--card-bg: rgba(255,255,255,0.05);
+			}
+			body {
+				background-color: var(--bg-color);
+				color: var(--text-main);
+				font-family: 'Georgia', serif; /* Classic, rugged academic feel */
+				margin: 0;
+				padding: 0;
+				line-height: 1.6;
+			}
+			.container {
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 4rem 2rem;
+			}
+			.hero {
+				text-align: center;
+				margin-bottom: 5rem;
+			}
+			.hero h1 {
+				font-size: 3.5rem;
+				letter-spacing: 2px;
+				margin-bottom: 0.5rem;
+				font-weight: normal;
+			}
+			.hero h3 {
+				font-size: 1.2rem;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				margin-bottom: 2rem;
+			}
+			.hero p {
+				max-width: 700px;
+				margin: 0 auto 2rem;
+				font-size: 1.1rem;
+			}
+			.button-group {
+				display: flex;
+				gap: 1rem;
+				justify-content: center;
+				margin-top: 2rem;
+			}
+			.btn {
+				padding: 0.8rem 1.5rem;
+				text-decoration: none;
+				border: 1px solid var(--accent);
+				color: var(--text-main);
+				font-family: sans-serif;
+				text-transform: uppercase;
+				font-size: 0.9rem;
+				letter-spacing: 1px;
+			}
+			.btn-primary {
+				background-color: var(--accent);
+				color: #111;
+			}
+			.section-title {
+				font-size: 2.2rem;
+				border-bottom: 1px solid rgba(245, 230, 211, 0.3);
+				padding-bottom: 1rem;
+				margin-bottom: 2rem;
+				font-weight: normal;
+			}
+			.tag {
+				background-color: rgba(60, 20, 10, 0.5);
+				color: var(--accent);
+				padding: 0.2rem 0.5rem;
+				font-size: 0.7rem;
+				text-transform: uppercase;
+				letter-spacing: 1px;
+			}
+			.grid-2 {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 2rem;
+				margin-bottom: 4rem;
+			}
+			.grid-3 {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				gap: 1.5rem;
+				margin-bottom: 4rem;
+			}
+			.card {
+				background-color: var(--card-bg);
+				padding: 1.5rem;
+				border-left: 3px solid var(--accent);
+			}
+			.card h4 {
+				margin-top: 0;
+				font-size: 1.2rem;
+			}
+			.footer-section {
+				margin-top: 5rem;
+				border-top: 1px solid rgba(245, 230, 211, 0.3);
+				padding-top: 3rem;
+				display: grid;
+				grid-template-columns: 2fr 1fr;
+				gap: 3rem;
+			}
+			.legal {
+				font-size: 0.8rem;
+				opacity: 0.7;
+				margin-top: 4rem;
+				border-left: 2px solid var(--accent);
+				padding-left: 1rem;
+			}
+			@media (max-width: 768px) {
+				.grid-2, .grid-3, .footer-section {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+		<main class="container">
+			<!-- HERO SECTION -->
+			<section class="hero">
+				<h1>OFFSITE SOCIAL CO.</h1>
+				<h3>Clock Out. Join In.</h3>
+				<p>An independent community initiative bridging the gap between the desk and the block. Built for remote workers who want genuine neighborhood connection. Not another networking event. Not another coupon book.</p>
+				<p><strong>A genuine offline ritual.</strong></p>
+				
+				<div class="button-group">
+					<a href="#join" class="btn btn-primary">Join The Collective</a>
+					<a href="/about" class="btn">Learn More</a>
+				</div>
+			</section>
+
+			<!-- LAUNCH PARTY -->
+			<section>
+				<span class="tag">Launch</span>
+				<h2 class="section-title">The LoHi Launch Party</h2>
+				<div class="grid-2">
+					<div>
+						<p><strong>Thursday, June 4th</strong></p>
+						<p>4:30 PM – 6:30 PM<br>bartaco LoHi</p>
+						<p>Join us for an evening of genuine connection on the block.</p>
+						<p>Agua frescas, and appetizer trios (chips, salsa & guac) are on the house, along side $8 featured margs all evening long.</p>
+						<div class="card" style="margin-top: 2rem;">
+							<p style="margin:0; font-size: 0.9rem;">Space for the Launch Party is limited. Secure your spot by June 2.</p>
+						</div>
+					</div>
+					<div>
+						<p>This is not a networking event. There are no name tags, no elevator pitches, no panels. It is a Thursday afternoon at a good bar with the people who live and work on the same blocks you do.</p>
+						<p>The LoHi Pilot is the first proof of a simple premise: that remote workers in the same neighborhood have more in common than proximity alone, and that a shared table and an unhurried hour is enough to begin building something durable.</p>
+						<p style="border-left: 2px solid var(--accent); padding-left: 1rem; margin-top: 2rem;">Clock out. Join in.</p>
+						<a href="#" class="btn btn-primary" style="display:inline-block; margin-top:1rem;">Secure Your Spot</a>
+					</div>
+				</div>
+			</section>
+
+			<!-- TUESDAY ANCHOR -->
+			<section>
+				<span class="tag">The Weekly Routine</span>
+				<h2 class="section-title">The Tuesday Anchor</h2>
+				<p>Community is not a one-off meetup. It is a weekly rhythm you can build a workday around.</p>
+				<p><strong>Starting June 9th, every Tuesday from 11:00 AM to 3:00 PM at bartaco LoHi.</strong></p>
+				
+				<div class="grid-3">
+					<div class="card">
+						<h4>Show Your Card</h4>
+						<p>Present your member card when ordering. No QR code theater. No coupons to save.</p>
+					</div>
+					<div class="card">
+						<h4>Claim Your Tray</h4>
+						<p>A complimentary app trio (chips, salsa, guac) on the house with the purchase of a lunch tray.</p>
+						<p style="color: var(--accent); font-style: italic;">$13 value</p>
+					</div>
+					<div class="card">
+						<h4>Live the Block</h4>
+						<p>Settle in beside your neighbors. Same hours. Same place. Every single Tuesday.</p>
+					</div>
+				</div>
+				
+				<div class="grid-2">
+					<div>
+						<p>bartaco LoHi is our exclusive Tuesday Lunch Anchor. As the network grows, additional neighborhood partners, each distinct local spots with their own character and craft, will be introduced through recurring drops.</p>
+						<p>The anchor is always the same day, the same place, the same unhurried window of time. Build your neighborhood routine.</p>
+					</div>
+					<div class="card" style="border-left: 3px solid #3b82f6;">
+						<p style="margin:0; font-size: 0.9rem;">New venues and local partnerships will be announced as the network expands. Each addition will reflect the neighborhood.</p>
+					</div>
+				</div>
+			</section>
+
+			<!-- FOOTER / JOIN -->
+			<section id="join" class="footer-section">
+				<div>
+					<span class="tag">The Collective</span>
+					<h2 class="section-title" style="border:none; padding:0; margin-bottom: 1rem;">Join the Collective</h2>
+					<p>Get notified when new neighborhood drops, Tuesday Anchor locations, and local partnerships open up. The Collective is free. There is no algorithm behind it. It is simply a list of people who want to be part of what is being built here, block by block.</p>
+					<a href="mailto:offsitesocialco@gmail.com" class="btn btn-primary" style="display:inline-block; margin-top:1rem;">Join The Collective</a>
+				</div>
+				<div>
+					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem;">Contact</h4>
+					<p><a href="mailto:offsitesocialco@gmail.com" style="color: var(--accent); text-decoration:none;">offsitesocialco@gmail.com</a></p>
+					
+					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem; margin-top: 2rem;">Instagram</h4>
+					<p>@offsitesocialco</p>
+					
+					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem; margin-top: 2rem;">Operated By</h4>
+					<p>Community Craft, Ltd.</p>
+				</div>
+			</section>
+			
+			<div class="legal">
+				Offsite Social Co. is an independent project. No venture backing. No growth hacks. Just neighbors.
+			</div>
 		</main>
-		<Footer />
 	</body>
 </html>
