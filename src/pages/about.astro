@@ -16,7 +16,6 @@ import BaseHead from '../components/BaseHead.astro';
 				/* The Industrial Academic Font Stack */
 				--font-academic: 'Georgia', 'Times New Roman', serif;
 				--font-industrial: 'Courier New', Courier, monospace;
-				--font-ui: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 			}
 			body {
 				background-color: var(--bg-color);
@@ -27,15 +26,6 @@ import BaseHead from '../components/BaseHead.astro';
 				padding: 0;
 				line-height: 1.75;
 				-webkit-font-smoothing: antialiased;
-			}
-			h1 {
-				font-weight: normal;
-				color: var(--text-main);
-				margin-top: 0;
-				font-size: 3rem;
-				border-bottom: 1px solid rgba(245, 230, 211, 0.2);
-				padding-bottom: 1rem;
-				margin-bottom: 2.5rem;
 			}
 			.container {
 				max-width: 800px;
@@ -54,10 +44,18 @@ import BaseHead from '../components/BaseHead.astro';
 				letter-spacing: 1.5px;
 				border-bottom: 1px solid var(--accent);
 				padding-bottom: 4px;
-				transition: all 0.2s ease;
+				transition: color 0.2s ease;
 			}
 			.header-nav a:hover {
 				color: var(--accent);
+			}
+			.about-logo {
+				width: 150px;
+				height: 150px;
+				border-radius: 50%; /* This CSS forces the perfect circle crop */
+				object-fit: cover;
+				margin-bottom: 2rem;
+				display: block;
 			}
 			.tag {
 				background-color: rgba(224, 139, 108, 0.1);
@@ -70,6 +68,15 @@ import BaseHead from '../components/BaseHead.astro';
 				border-left: 2px solid var(--accent);
 				margin-bottom: 1rem;
 				display: inline-block;
+			}
+			h1 {
+				font-weight: normal;
+				color: var(--text-main);
+				margin-top: 0;
+				font-size: 3rem;
+				border-bottom: 1px solid rgba(245, 230, 211, 0.2);
+				padding-bottom: 1rem;
+				margin-bottom: 2.5rem;
 			}
 			p {
 				margin-bottom: 1.8rem;
@@ -93,6 +100,9 @@ import BaseHead from '../components/BaseHead.astro';
 			<nav class="header-nav">
 				<a href="/">← Back to the Block</a>
 			</nav>
+
+			<!-- Circular Compass Logo -->
+			<img src="/compass-logo.png" alt="Offsite Social Co." class="about-logo">
 
 			<span class="tag">The Story</span>
 			<h1>About the Project</h1>
