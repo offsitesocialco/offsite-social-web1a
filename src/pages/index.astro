@@ -1,26 +1,42 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title="Offsite Social Co." description="Clock Out. Join In." />
+		<BaseHead title="Offsite Social Co." description="Clock out. Join in." />
 		<style>
 			:root {
-				--bg-color: #0f2e26;
-				--text-main: #f5e6d3;
-				--accent: #e08b6c;
-				--card-bg: rgba(255,255,255,0.05);
+				--bg-color: #0d2821; /* Slightly richer, darker heritage green */
+				--text-main: #fbf5eb; /* Brighter, crisper paper-white for readability */
+				--text-muted: #d9cbb8; /* Softer cream for less eye strain on long paragraphs */
+				--accent: #e08b6c; /* Terracotta */
+				--card-bg: rgba(245, 230, 211, 0.06); 
+				
+				/* Font Pairing */
+				--font-serif: 'Georgia', 'Times New Roman', serif;
+				--font-sans: 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
 			}
 			body {
 				background-color: var(--bg-color);
 				color: var(--text-main);
-				font-family: 'Georgia', serif; /* Classic, rugged academic feel */
+				font-family: var(--font-sans); /* Clean, industrial sans-serif for reading */
+				font-size: 1.125rem; /* Slightly larger base text */
 				margin: 0;
 				padding: 0;
-				line-height: 1.6;
+				line-height: 1.7; /* More breathing room between lines */
+				-webkit-font-smoothing: antialiased; /* Crisper rendering on dark mode */
+			}
+			h1, h2, h3, h4 {
+				font-family: var(--font-serif); /* Keep the heritage academic feel for headers */
+				font-weight: normal;
+				color: var(--text-main);
+				margin-top: 0;
+			}
+			p {
+				color: var(--text-muted);
+				max-width: 65ch; /* Prevents lines from getting too long to read comfortably */
 			}
 			.container {
 				max-width: 900px;
@@ -33,95 +49,117 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			}
 			.hero h1 {
 				font-size: 3.5rem;
-				letter-spacing: 2px;
+				letter-spacing: 1px;
 				margin-bottom: 0.5rem;
-				font-weight: normal;
 			}
 			.hero h3 {
-				font-size: 1.2rem;
+				font-size: 1.1rem;
+				font-family: var(--font-sans);
 				text-transform: uppercase;
-				letter-spacing: 2px;
+				letter-spacing: 3px;
 				margin-bottom: 2rem;
+				color: var(--accent);
 			}
 			.hero p {
-				max-width: 700px;
 				margin: 0 auto 2rem;
-				font-size: 1.1rem;
+				font-size: 1.2rem;
 			}
 			.button-group {
 				display: flex;
 				gap: 1rem;
 				justify-content: center;
-				margin-top: 2rem;
+				margin-top: 2.5rem;
 			}
 			.btn {
-				padding: 0.8rem 1.5rem;
+				padding: 0.8rem 1.8rem;
 				text-decoration: none;
 				border: 1px solid var(--accent);
 				color: var(--text-main);
-				font-family: sans-serif;
+				font-family: var(--font-sans);
 				text-transform: uppercase;
-				font-size: 0.9rem;
-				letter-spacing: 1px;
+				font-size: 0.85rem;
+				letter-spacing: 1.5px;
+				transition: all 0.2s ease;
 			}
 			.btn-primary {
 				background-color: var(--accent);
 				color: #111;
+				font-weight: 600;
+			}
+			.btn:hover {
+				opacity: 0.9;
+				transform: translateY(-1px);
 			}
 			.section-title {
-				font-size: 2.2rem;
-				border-bottom: 1px solid rgba(245, 230, 211, 0.3);
+				font-size: 2.4rem;
+				border-bottom: 1px solid rgba(245, 230, 211, 0.2);
 				padding-bottom: 1rem;
-				margin-bottom: 2rem;
-				font-weight: normal;
+				margin-bottom: 2.5rem;
 			}
 			.tag {
-				background-color: rgba(60, 20, 10, 0.5);
+				background-color: rgba(224, 139, 108, 0.15);
 				color: var(--accent);
-				padding: 0.2rem 0.5rem;
-				font-size: 0.7rem;
+				padding: 0.3rem 0.6rem;
+				font-size: 0.75rem;
+				font-family: var(--font-sans);
 				text-transform: uppercase;
-				letter-spacing: 1px;
+				letter-spacing: 1.5px;
+				border-radius: 2px;
+				margin-bottom: 1rem;
+				display: inline-block;
 			}
 			.grid-2 {
 				display: grid;
 				grid-template-columns: 1fr 1fr;
-				gap: 2rem;
-				margin-bottom: 4rem;
+				gap: 3rem;
+				margin-bottom: 5rem;
 			}
 			.grid-3 {
 				display: grid;
 				grid-template-columns: 1fr 1fr 1fr;
-				gap: 1.5rem;
+				gap: 2rem;
 				margin-bottom: 4rem;
 			}
 			.card {
 				background-color: var(--card-bg);
-				padding: 1.5rem;
+				padding: 2rem;
 				border-left: 3px solid var(--accent);
+				border-radius: 2px;
 			}
 			.card h4 {
-				margin-top: 0;
-				font-size: 1.2rem;
+				font-size: 1.3rem;
+				margin-bottom: 1rem;
+			}
+			.card p {
+				color: var(--text-main); /* Brighter text inside cards so it pops */
+				font-size: 1rem;
+				margin: 0;
 			}
 			.footer-section {
-				margin-top: 5rem;
-				border-top: 1px solid rgba(245, 230, 211, 0.3);
-				padding-top: 3rem;
+				margin-top: 6rem;
+				border-top: 1px solid rgba(245, 230, 211, 0.2);
+				padding-top: 4rem;
 				display: grid;
 				grid-template-columns: 2fr 1fr;
-				gap: 3rem;
+				gap: 4rem;
 			}
 			.legal {
-				font-size: 0.8rem;
-				opacity: 0.7;
-				margin-top: 4rem;
+				font-size: 0.85rem;
+				color: rgba(245, 230, 211, 0.5);
+				margin-top: 5rem;
 				border-left: 2px solid var(--accent);
 				padding-left: 1rem;
 			}
 			@media (max-width: 768px) {
 				.grid-2, .grid-3, .footer-section {
 					grid-template-columns: 1fr;
+					gap: 2rem;
+				}
+				.hero h1 {
+					font-size: 2.5rem;
+				}
+				.button-group {
+					flex-direction: column;
 				}
 			}
 		</style>
@@ -133,7 +171,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<h1>OFFSITE SOCIAL CO.</h1>
 				<h3>Clock Out. Join In.</h3>
 				<p>An independent community initiative bridging the gap between the desk and the block. Built for remote workers who want genuine neighborhood connection. Not another networking event. Not another coupon book.</p>
-				<p><strong>A genuine offline ritual.</strong></p>
+				<p style="color: var(--text-main);"><strong>A genuine offline ritual.</strong></p>
 				
 				<div class="button-group">
 					<a href="#join" class="btn btn-primary">Join The Collective</a>
@@ -147,19 +185,19 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 				<h2 class="section-title">The LoHi Launch Party</h2>
 				<div class="grid-2">
 					<div>
-						<p><strong>Thursday, June 4th</strong></p>
-						<p>4:30 PM – 6:30 PM<br>bartaco LoHi</p>
+						<p style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0;"><strong>Thursday, June 4th</strong></p>
+						<p style="margin-top: 0.5rem;">4:30 PM – 6:30 PM<br>bartaco LoHi</p>
 						<p>Join us for an evening of genuine connection on the block.</p>
 						<p>Agua frescas, and appetizer trios (chips, salsa & guac) are on the house, along side $8 featured margs all evening long.</p>
-						<div class="card" style="margin-top: 2rem;">
-							<p style="margin:0; font-size: 0.9rem;">Space for the Launch Party is limited. Secure your spot by June 2.</p>
+						<div class="card" style="margin-top: 2.5rem;">
+							<p>Space for the Launch Party is limited. Secure your spot by June 2.</p>
 						</div>
 					</div>
 					<div>
 						<p>This is not a networking event. There are no name tags, no elevator pitches, no panels. It is a Thursday afternoon at a good bar with the people who live and work on the same blocks you do.</p>
 						<p>The LoHi Pilot is the first proof of a simple premise: that remote workers in the same neighborhood have more in common than proximity alone, and that a shared table and an unhurried hour is enough to begin building something durable.</p>
-						<p style="border-left: 2px solid var(--accent); padding-left: 1rem; margin-top: 2rem;">Clock out. Join in.</p>
-						<a href="#" class="btn btn-primary" style="display:inline-block; margin-top:1rem;">Secure Your Spot</a>
+						<p style="border-left: 2px solid var(--accent); padding-left: 1.2rem; margin-top: 2.5rem; color: var(--text-main); font-family: var(--font-serif); font-size: 1.3rem;">Clock out. Join in.</p>
+						<a href="#join" class="btn btn-primary" style="display:inline-block; margin-top:1.5rem;">Secure Your Spot</a>
 					</div>
 				</div>
 			</section>
@@ -168,7 +206,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 			<section>
 				<span class="tag">The Weekly Routine</span>
 				<h2 class="section-title">The Tuesday Anchor</h2>
-				<p>Community is not a one-off meetup. It is a weekly rhythm you can build a workday around.</p>
+				<p style="font-size: 1.2rem; color: var(--text-main);">Community is not a one-off meetup. It is a weekly rhythm you can build a workday around.</p>
 				<p><strong>Starting June 9th, every Tuesday from 11:00 AM to 3:00 PM at bartaco LoHi.</strong></p>
 				
 				<div class="grid-3">
@@ -179,7 +217,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<div class="card">
 						<h4>Claim Your Tray</h4>
 						<p>A complimentary app trio (chips, salsa, guac) on the house with the purchase of a lunch tray.</p>
-						<p style="color: var(--accent); font-style: italic;">$13 value</p>
+						<p style="color: var(--accent); font-style: italic; margin-top: 1rem; font-family: var(--font-serif);">-$13 value</p>
 					</div>
 					<div class="card">
 						<h4>Live the Block</h4>
@@ -192,8 +230,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 						<p>bartaco LoHi is our exclusive Tuesday Lunch Anchor. As the network grows, additional neighborhood partners, each distinct local spots with their own character and craft, will be introduced through recurring drops.</p>
 						<p>The anchor is always the same day, the same place, the same unhurried window of time. Build your neighborhood routine.</p>
 					</div>
-					<div class="card" style="border-left: 3px solid #3b82f6;">
-						<p style="margin:0; font-size: 0.9rem;">New venues and local partnerships will be announced as the network expands. Each addition will reflect the neighborhood.</p>
+					<div class="card" style="border-left: 3px solid #3b82f6; background-color: rgba(59, 130, 246, 0.05);">
+						<p>New venues and local partnerships will be announced as the network expands. Each addition will reflect the neighborhood.</p>
 					</div>
 				</div>
 			</section>
@@ -204,22 +242,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 					<span class="tag">The Collective</span>
 					<h2 class="section-title" style="border:none; padding:0; margin-bottom: 1rem;">Join the Collective</h2>
 					<p>Get notified when new neighborhood drops, Tuesday Anchor locations, and local partnerships open up. The Collective is free. There is no algorithm behind it. It is simply a list of people who want to be part of what is being built here, block by block.</p>
-					<a href="mailto:offsitesocialco@gmail.com" class="btn btn-primary" style="display:inline-block; margin-top:1rem;">Join The Collective</a>
+					<a href="mailto:offsitesocialco@gmail.com" class="btn btn-primary" style="display:inline-block; margin-top:1.5rem;">Join The Collective</a>
 				</div>
 				<div>
-					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem;">Contact</h4>
-					<p><a href="mailto:offsitesocialco@gmail.com" style="color: var(--accent); text-decoration:none;">offsitesocialco@gmail.com</a></p>
+					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.2); padding-bottom:0.5rem; margin-bottom: 1rem;">Contact</h4>
+					<p style="margin: 0;"><a href="mailto:offsitesocialco@gmail.com" style="color: var(--accent); text-decoration:none;">offsitesocialco@gmail.com</a></p>
 					
-					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem; margin-top: 2rem;">Instagram</h4>
-					<p>@offsitesocialco</p>
+					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.2); padding-bottom:0.5rem; margin-top: 2.5rem; margin-bottom: 1rem;">Instagram</h4>
+					<p style="margin: 0; color: var(--text-main);">@offsitesocialco</p>
 					
-					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.3); padding-bottom:0.5rem; margin-top: 2rem;">Operated By</h4>
-					<p>Community Craft, Ltd.</p>
+					<h4 style="border-bottom: 1px solid rgba(245,230,211,0.2); padding-bottom:0.5rem; margin-top: 2.5rem; margin-bottom: 1rem;">Operated By</h4>
+					<p style="margin: 0; color: var(--text-main);">Community Craft, Ltd.</p>
 				</div>
 			</section>
 			
 			<div class="legal">
-				Offsite Social Co. is an independent project. No venture backing. No growth hacks. Just neighbors.
+				<p style="margin: 0;">Offsite Social Co. is an independent project. No venture backing. No growth hacks. Just neighbors.</p>
 			</div>
 		</main>
 	</body>
