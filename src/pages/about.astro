@@ -7,25 +7,40 @@ import BaseHead from '../components/BaseHead.astro';
 	<head>
 		<BaseHead title="About | Offsite Social Co." description="The story behind the club." />
 		<style>
-			/* We use the exact same styles here to keep the brand consistent */
 			:root {
-				--bg-color: #0f2e26;
-				--text-main: #f5e6d3;
-				--accent: #e08b6c;
-				--card-bg: rgba(255,255,255,0.05);
+				--bg-color: #0d2821; 
+				--text-main: #f5e6d3; 
+				--text-muted: #d9cbb8;
+				--accent: #e08b6c; 
+				
+				/* The Industrial Academic Font Stack */
+				--font-academic: 'Georgia', 'Times New Roman', serif;
+				--font-industrial: 'Courier New', Courier, monospace;
+				--font-ui: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 			}
 			body {
 				background-color: var(--bg-color);
-				color: var(--text-main);
-				font-family: 'Georgia', serif;
+				color: var(--text-muted);
+				font-family: var(--font-academic);
+				font-size: 1.15rem;
 				margin: 0;
 				padding: 0;
-				line-height: 1.6;
+				line-height: 1.75;
+				-webkit-font-smoothing: antialiased;
+			}
+			h1 {
+				font-weight: normal;
+				color: var(--text-main);
+				margin-top: 0;
+				font-size: 3rem;
+				border-bottom: 1px solid rgba(245, 230, 211, 0.2);
+				padding-bottom: 1rem;
+				margin-bottom: 2.5rem;
 			}
 			.container {
 				max-width: 800px;
 				margin: 0 auto;
-				padding: 4rem 2rem;
+				padding: 6rem 2rem;
 			}
 			.header-nav {
 				margin-bottom: 4rem;
@@ -33,23 +48,43 @@ import BaseHead from '../components/BaseHead.astro';
 			.header-nav a {
 				color: var(--text-main);
 				text-decoration: none;
-				font-family: sans-serif;
+				font-family: var(--font-industrial);
 				text-transform: uppercase;
-				font-size: 0.8rem;
-				letter-spacing: 1px;
+				font-size: 0.85rem;
+				letter-spacing: 1.5px;
 				border-bottom: 1px solid var(--accent);
-				padding-bottom: 2px;
+				padding-bottom: 4px;
+				transition: all 0.2s ease;
 			}
-			h1 {
-				font-size: 3rem;
-				font-weight: normal;
-				border-bottom: 1px solid rgba(245, 230, 211, 0.3);
-				padding-bottom: 1rem;
-				margin-bottom: 2rem;
+			.header-nav a:hover {
+				color: var(--accent);
+			}
+			.tag {
+				background-color: rgba(224, 139, 108, 0.1);
+				color: var(--accent);
+				padding: 0.3rem 0.6rem;
+				font-size: 0.75rem;
+				font-family: var(--font-industrial);
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				border-left: 2px solid var(--accent);
+				margin-bottom: 1rem;
+				display: inline-block;
 			}
 			p {
-				font-size: 1.1rem;
-				margin-bottom: 1.5rem;
+				margin-bottom: 1.8rem;
+				max-width: 65ch;
+			}
+			.sign-off {
+				margin-top: 4rem;
+				padding-top: 2rem;
+				border-top: 1px dashed rgba(245, 230, 211, 0.2);
+				font-family: var(--font-industrial);
+				font-size: 0.9rem;
+				color: rgba(245, 230, 211, 0.5);
+				text-transform: uppercase;
+				letter-spacing: 1px;
+				line-height: 1.8;
 			}
 		</style>
 	</head>
@@ -59,15 +94,19 @@ import BaseHead from '../components/BaseHead.astro';
 				<a href="/">← Back to the Block</a>
 			</nav>
 
+			<span class="tag">The Story</span>
 			<h1>About the Project</h1>
 			
 			<p>Offsite Social Co. was built on a simple observation: the shift to remote work gave us our time back, but it stripped away the passive routines that actually tie a neighborhood together.</p>
 			
 			<p>Working from home shouldn't mean working in isolation. We don't need more digital groups or forced networking events with name tags. We need a reason to clock out, grab a seat at a familiar table, and be a regular.</p>
 			
-			<p>This club acts as a bridge. By partnering with distinct local spots that care about their craft, we create unhurried windows of time for neighbors to cross paths.</p>
+			<p>This social club acts as a bridge. By partnering with distinct local spots that care about their craft, we create unhurried windows of time for neighbors to cross paths.</p>
 
-			<p>Operated by Community Craft, Ltd., this is an independent effort to build something durable. Block by block.</p>
+			<div class="sign-off">
+				Operated by Community Craft, Ltd.<br>
+				An independent effort built block by block.
+			</div>
 		</main>
 	</body>
 </html>
